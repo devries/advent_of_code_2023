@@ -1,69 +1,29 @@
-# Advent of Code Template in Go
+# Advent of Code 2023
 
-This is a template to put advent of code problems into a single executable. It
-allows you to measure the execution time of each part of each problem, and to
-ignore some of the boilerplate. Not sure if anyone else will be interested, but
-I thought I would give it a try because I have seen a lot of templates like
-this.
+[![Tests](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2032/actions/workflows/main.yml)
+[![Stars: 0](https://img.shields.io/badge/⭐_Stars-0-yellow)](https://adventofcode.com/2023)
 
-# Instructions
+## Plan for This Year
 
-To start a new day, download your input from the advent of code website and put
-it in a file named `dayXX.txt` where `XX` is replaced by the two digit day of
-the month within a subdirectory called `inputs`. Then, to generate code from a
-template using the command:
+This year I am going to try a couple of new things. First, I am going to try to
+use the delve go debugger rather than put in print statements while I debug. My
+hope is that by the end of December I will be much more familiar with the
+debugger. Second, I want to try asking some generative AIs for helpful functions
+to see how it improves my speed. I was considering Github copilot, but I just
+can't give up my current editor, [helix](https://helix-editor.com/), to use
+vscode, and I don't really want to go down that neovim plugin rabbit hole
+anymore. 
 
-```
-make start
-```
+I may use codespaces a bit. I've added some permissions so that I can clone my
+private inputs submodule just in case, but it's hard to beat the setup I use to
+write code every day.
 
-It will default to adding code for the current day. This will create a
-directory called `dayXXp1` where `XX` is replaced by the day number. Inside
-will be a file called `solution.go` with a `Solve` function in which to put
-your solution, and a `solution_test.go` file to write your tests. The `Solve`
-function takes an `io.Reader` argument which is the input and returns a
-solution which can be any type.
+This year I also created a new Advent of Code template in the
+[devries/aoc_template](https://github.com/devries/aoc_template) repository. It
+compiles everything into a single executable and times how long it takes to run
+each problem, as well as generates a template for each day. It was also an
+opportunity to experiment a bit with code generation.
 
-If you wish to start a problem for a specific day, say the 21st, you can create
-the desired directory from the template by using the make command to create the
-part 1 directory for that day using the command below.
+## Solutions
 
-```
-make day21p1
-```
-
-To run the last code you worked on use the command:
-
-```
-make run
-```
-
-This will generate a `run.go` file and run the most recently modified code. Once
-the first part is finished you can start the second part by using the command:
-
-```
-make day21p2
-```
-
-This will copy your current part 1 code from `day21p1` and update the package
-names. You can then edit that code to complete part 2.
-
-You can run all the days with the command:
-
-```
-make runall
-```
-
-You can build a binary called `aoc_run` by using the
-
-```
-make build
-```
-
-command.
-
-Finally, you can run your tests with the command:
-
-```
-make test
-```
+No problems until December 1st. Good luck everyone! 
