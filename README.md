@@ -1,7 +1,7 @@
 # Advent of Code 2023
 
 [![Tests](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml)
-[![Stars: 0](https://img.shields.io/badge/⭐_Stars-0-yellow)](https://adventofcode.com/2023)
+[![Stars: 1](https://img.shields.io/badge/⭐_Stars-1-yellow)](https://adventofcode.com/2023)
 
 ## Plan for This Year
 
@@ -26,4 +26,4 @@ opportunity to experiment a bit with code generation.
 
 ## Solutions
 
-No problems until December 1st. Good luck everyone! 
+- [Day 1: Trebuchet?!](https://adventofcode.com/2023/day/1) - [part 1](day01p1/solution.go), [part 2](day01p2/solution.go)
