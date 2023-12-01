@@ -27,3 +27,12 @@ opportunity to experiment a bit with code generation.
 ## Solutions
 
 - [Day 1: Trebuchet?!](https://adventofcode.com/2023/day/1) - [part 1](day01p1/solution.go), [part 2](day01p2/solution.go)
+
+  Initially for the second part I put together a regular expression to search
+  for the spelled out digits, however it is possible to have overlap between 
+  these words, for example "twone", "sevenine", or "threeight." Regular
+  expressions do not capture overlapping matches, so I switched to cycling 
+  through the names and finding the indecies of each word or digit (if any)
+  using `strings.Index`. Once you find a match you have to look for more
+  matches starting at the next character after your previous search and I did
+  have some indexing issues which I had to debug.
