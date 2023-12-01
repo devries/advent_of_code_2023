@@ -35,4 +35,5 @@ opportunity to experiment a bit with code generation.
   through the names and finding the indecies of each word or digit (if any)
   using `strings.Index`. Once you find a match you have to look for more
   matches starting at the next character after your previous search and I did
-  have some indexing issues which I had to debug.
+  have some indexing issues which I had to debug. I later realized I could use
+  `strings.LastIndex` to make this much easier.

@@ -41,20 +41,16 @@ func Solve(r io.Reader) any {
 		maxpos := -1
 
 		for k, v := range matchmap {
-			for i := 0; i < len(ln); i++ {
-				p := strings.Index(ln[i:], k)
-				if p == -1 {
-					break
-				}
-				if p+i < minpos {
-					first = v
-					minpos = p + i
-				}
-				if p+i > maxpos {
-					last = v
-					maxpos = p + i
-				}
-				i += p
+			p := strings.Index(ln, k)
+			if p != -1 && p < minpos {
+				first = v
+				minpos = p
+			}
+
+			p = strings.LastIndex(ln, k)
+			if p != -1 && p > maxpos {
+				last = v
+				maxpos = p
 			}
 		}
 		sum += 10*first + last
