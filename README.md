@@ -1,7 +1,7 @@
 # Advent of Code 2023
 
 [![Tests](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml)
-[![Stars: 1](https://img.shields.io/badge/⭐_Stars-1-yellow)](https://adventofcode.com/2023)
+[![Stars: 2](https://img.shields.io/badge/⭐_Stars-2-yellow)](https://adventofcode.com/2023)
 
 ## Plan for This Year
 
