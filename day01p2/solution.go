@@ -42,13 +42,17 @@ func Solve(r io.Reader) any {
 
 		for k, v := range matchmap {
 			p := strings.Index(ln, k)
-			if p != -1 && p < minpos {
+			if p == -1 {
+				// substring not found
+				continue
+			}
+			if p < minpos {
 				first = v
 				minpos = p
 			}
 
 			p = strings.LastIndex(ln, k)
-			if p != -1 && p > maxpos {
+			if p > maxpos {
 				last = v
 				maxpos = p
 			}
