@@ -1,7 +1,7 @@
 # Advent of Code 2023
 
 [![Tests](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml)
-[![Stars: 2](https://img.shields.io/badge/⭐_Stars-2-yellow)](https://adventofcode.com/2023)
+[![Stars: 4](https://img.shields.io/badge/⭐_Stars-4-yellow)](https://adventofcode.com/2023)
 
 ## Plan for This Year
 
@@ -37,3 +37,11 @@ opportunity to experiment a bit with code generation.
   matches starting at the next character after your previous search and I did
   have some indexing issues which I had to debug. I later realized I could use
   `strings.LastIndex` to make this much easier.
+
+- [Day 2:Cube Conundrum ](https://adventofcode.com/2023/day/2) - [part 1](day02p1/solution.go), [part 2](day02p2/solution.go)
+
+  Most of this problem was parsing. I just did a lot of splitting on substrings.
+  First I split on ": " to separate the game id from the draws, then I split on
+  "; " to separate the individual draws, then on ", " to split to the colors.
+  After that it was straightforward. I missed an opportunity to use the debugger
+  to check my parsing and instead put in a `Println`. 
