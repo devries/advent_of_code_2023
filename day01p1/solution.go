@@ -15,7 +15,7 @@ func Solve(r io.Reader) any {
 	for _, ln := range lines {
 		first = -1
 		last = -1
-		for _, r := range []rune(ln) {
+		for _, r := range ln {
 			if r >= '0' && r <= '9' {
 				if first == -1 {
 					first = int(r - '0')

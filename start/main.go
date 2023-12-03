@@ -11,11 +11,6 @@ import (
 	"github.com/spf13/pflag"
 )
 
-type templateData struct {
-	Day  int
-	Part int
-}
-
 func main() {
 	now := time.Now()
 	day := pflag.IntP("day", "d", now.Day(), "Advent of Code Day")
