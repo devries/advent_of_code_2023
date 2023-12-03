@@ -6,25 +6,40 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"runtime/pprof"
 	"strconv"
 	"time"
 
 	"aoc/utils"
+
 	"github.com/spf13/pflag"
 )
 
 var RunAll bool
 var DaySelected int
 var PartSelected string
+var CpuProfile string
 
 func init() {
 	pflag.BoolVarP(&RunAll, "all", "a", false, "run all days")
 	pflag.IntVarP(&DaySelected, "day", "d", 0, "run specific day")
 	pflag.StringVarP(&PartSelected, "part", "p", "2", "run specific part (default 2)")
+	pflag.StringVar(&CpuProfile, "cpuprofile", "", "write cpu profile to `file`")
 }
 
 func main() {
 	pflag.Parse()
+
+	if CpuProfile != "" {
+		f, err := os.Create(CpuProfile)
+		utils.Check(err, "Unable to create cpu profile file")
+		defer f.Close()
+
+		err = pprof.StartCPUProfile(f)
+		utils.Check(err, "Unable to start CPU Profiler")
+		defer pprof.StopCPUProfile()
+	}
+
 	if RunAll {
 		runAll()
 		return
