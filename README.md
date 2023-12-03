@@ -1,7 +1,7 @@
 # Advent of Code 2023
 
 [![Tests](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml)
-[![Stars: 4](https://img.shields.io/badge/⭐_Stars-4-yellow)](https://adventofcode.com/2023)
+[![Stars: 6](https://img.shields.io/badge/⭐_Stars-6-yellow)](https://adventofcode.com/2023)
 
 ## Plan for This Year
 
@@ -38,10 +38,21 @@ opportunity to experiment a bit with code generation.
   have some indexing issues which I had to debug. I later realized I could use
   `strings.LastIndex` to make this much easier.
 
-- [Day 2:Cube Conundrum ](https://adventofcode.com/2023/day/2) - [part 1](day02p1/solution.go), [part 2](day02p2/solution.go)
+- [Day 2: Cube Conundrum ](https://adventofcode.com/2023/day/2) - [part 1](day02p1/solution.go), [part 2](day02p2/solution.go)
 
   Most of this problem was parsing. I just did a lot of splitting on substrings.
   First I split on ": " to separate the game id from the draws, then I split on
   "; " to separate the individual draws, then on ", " to split to the colors.
   After that it was straightforward. I missed an opportunity to use the debugger
   to check my parsing and instead put in a `Println`. 
+
+- [Day 3: Gear Ratios ](https://adventofcode.com/2023/day/3) - [part 1](day03p1/solution.go), [part 2](day03p2/solution.go)
+
+  The key here was just figuring out how to store the schematic data so it would
+  be useful for answering the questions. During parsing I recorded the positions
+  of the symbols in a map indexed by position. I recorded the numbers as an
+  array of structs including the value and the start and end position. Then I
+  could interate over all the numbers, find the surrounding points, and see what
+  symbols were around them. I created an array of numbers for each gear object
+  I found and then could iterate through those arrays to find gears with 
+  exactly two adjacent numbers. 
