@@ -48,69 +48,14 @@ func Solve(r io.Reader) any {
 			conversions = append(conversions, c)
 
 		case ln == "":
-			// Conversion array complete, calculate conversions
-			sort.Slice(conversions, func(i, j int) bool { return conversions[i].Start < conversions[j].Start })
-			newvalues := []int64{}
-
-			for i := 0; i < len(values); i += 2 {
-				// For each input value and range we convert to a new value and range.
-				// If the range is longer than the valid interval of the conversion we split up the range into two intervals
-				// and then convert the second value and range as well... if that one is longer than the valid interval we repeat
-				start, length := values[i], values[i+1]
-
-				for {
-					delta, interval := getDeltaInterval(conversions, start)
-					newvalues = append(newvalues, start+delta)
-					if length <= interval || interval == 0 { // 0 interval means the rest of the numbers follow that delta
-						// The length of the input value range is less than the conversion interval
-						newvalues = append(newvalues, length)
-						break
-					} else {
-						// The length of the input value range is greater than the remaining
-						// conversion interval, we need to split the solution up into multiple
-						// ranges
-						newvalues = append(newvalues, interval)
-						start = start + interval
-						length = length - interval
-					}
-				}
-			}
-			values = newvalues
+			values = doConversion(conversions, values)
 
 			conversions = []Conversion{}
 		}
 	}
 
 	if len(conversions) > 0 {
-		// Do last conversion
-		sort.Slice(conversions, func(i, j int) bool { return conversions[i].Start < conversions[j].Start })
-		newvalues := []int64{}
-
-		for i := 0; i < len(values); i += 2 {
-			// For each input value and range we convert to a new value and range.
-			// If the range is longer than the valid interval of the conversion we split up the range into two intervals
-			// and then convert the second value and range as well... if that one is longer than the valid interval we repeat
-			start, length := values[i], values[i+1]
-
-			for {
-				delta, interval := getDeltaInterval(conversions, start)
-				newvalues = append(newvalues, start+delta)
-				if length <= interval || interval == 0 { // 0 interval means the rest of the numbers follow that delta
-					// The length of the input value range is less than the conversion interval
-					newvalues = append(newvalues, length)
-					break
-				} else {
-					// The length of the input value range is greater than the remaining
-					// conversion interval, we need to split the solution up into multiple
-					// ranges
-					newvalues = append(newvalues, interval)
-					start = start + interval
-					length = length - interval
-				}
-			}
-		}
-
-		values = newvalues
+		values = doConversion(conversions, values)
 	}
 
 	min := values[0]
@@ -157,4 +102,36 @@ func getDeltaInterval(arr []Conversion, val int64) (int64, int64) {
 	} else {
 		return 0, 0
 	}
+}
+
+// Run conversions and return new values array
+func doConversion(conversions []Conversion, values []int64) []int64 {
+	// Conversion array complete, calculate conversions
+	sort.Slice(conversions, func(i, j int) bool { return conversions[i].Start < conversions[j].Start })
+	newvalues := []int64{}
+
+	for i := 0; i < len(values); i += 2 {
+		// For each input value and range we convert to a new value and range.
+		// If the range is longer than the valid interval of the conversion we split up the range into two intervals
+		// and then convert the second value and range as well... if that one is longer than the valid interval we repeat
+		start, length := values[i], values[i+1]
+
+		for {
+			delta, interval := getDeltaInterval(conversions, start)
+			newvalues = append(newvalues, start+delta)
+			if length <= interval || interval == 0 { // 0 interval means the rest of the numbers follow that delta
+				// The length of the input value range is less than the conversion interval
+				newvalues = append(newvalues, length)
+				break
+			} else {
+				// The length of the input value range is greater than the remaining
+				// conversion interval, we need to split the solution up into multiple
+				// ranges
+				newvalues = append(newvalues, interval)
+				start = start + interval
+				length = length - interval
+			}
+		}
+	}
+	return newvalues
 }
