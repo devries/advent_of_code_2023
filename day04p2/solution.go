@@ -1,6 +1,7 @@
 package day04p2
 
 import (
+	"fmt"
 	"io"
 	"strconv"
 	"strings"
@@ -41,6 +42,9 @@ func Solve(r io.Reader) any {
 	sum := 0
 
 	for i := 0; i <= max; i++ {
+		if utils.Verbose {
+			fmt.Printf("Copies of Card %d: %d\n", i+1, multiplier[i]+1)
+		}
 		sum += multiplier[i] + 1
 	}
 	return sum
