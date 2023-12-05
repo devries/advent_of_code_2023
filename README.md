@@ -1,7 +1,7 @@
 # Advent of Code 2023
 
 [![Tests](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml)
-[![Stars: 8](https://img.shields.io/badge/⭐_Stars-8-yellow)](https://adventofcode.com/2023)
+[![Stars: 10](https://img.shields.io/badge/⭐_Stars-10-yellow)](https://adventofcode.com/2023)
 
 ## Plan for This Year
 
@@ -69,3 +69,15 @@ opportunity to experiment a bit with code generation.
   array just had the count minus 1 so that a multiplier of 0 would mean 1 copy.
   Everything seems to have worked out in the end, though I still don't have
   power, and it's not getting any warmer.
+
+- [Day 5: If You Give A Seed A Fertilizer](https://adventofcode.com/2023/day/5) - [part 1](day05p1/solution.go), [part 2](day05p2/solution.go)
+
+  This is the sort of problem where it is prohibitively large to calculate the
+  conversion of every individual element in a range of integers, however the
+  given ranges of integers need to be handled in different ways depending on
+  where they exist within portions of those ranges. Rather then iterate through
+  each range, the key is finding the subranges which are handled in the same way
+  and calculate how that range as a whole will be modified. As you continue to
+  do this the number of ranges grows, but it will always be far fewer
+  calculations than tracking how each individual element is handled.
+
