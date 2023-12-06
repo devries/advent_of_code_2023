@@ -24,6 +24,33 @@ compiles everything into a single executable and times how long it takes to run
 each problem, as well as generates a template for each day. It was also an
 opportunity to experiment a bit with code generation.
 
+## Efficiency
+
+Although at times I have not found it, there should be a "[solution that completes
+in at most 15 seconds on ten-year-old hardware.](https://adventofcode.com/2023/about)"
+
+I am hoping this year to find solutions that will run in a reasonable amount of
+time on a Raspberry Pi 4 Model B with 4 Gigabytes of RAM and a Cortex A72
+processor. The Pi-4 is roughly 500-600 times faster than the first computer I
+purchased in the late 90s (200 MHz Pentium MMX with 64 Megabytes
+of RAM). Below I have the time it takes for the problem to finish on the third
+run of my solution after compilation on my Raspberry Pi.
+
+| Day | Part | Time Elapsed |
+| :-- | :--- | :----------- |
+| 1   | 1    | 558.698µs    |
+| 1   | 2    | 3.230152ms   |
+| 2   | 1    | 1.847944ms   |
+| 2   | 2    | 1.950147ms   |
+| 3   | 1    | 3.929274ms   |
+| 3   | 2    | 4.738173ms   |
+| 4   | 1    | 4.211679ms   |
+| 4   | 2    | 3.712758ms   |
+| 5   | 1    | 3.235819ms   |
+| 5   | 2    | 1.154803ms   |
+| 6   | 1    | 31.777µs     |
+| 6   | 2    | 30.13µs      |
+
 ## Solutions
 
 - [Day 1: Trebuchet?!](https://adventofcode.com/2023/day/1) - [part 1](day01p1/solution.go), [part 2](day01p2/solution.go)
