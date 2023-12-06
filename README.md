@@ -31,10 +31,10 @@ in at most 15 seconds on ten-year-old hardware.](https://adventofcode.com/2023/a
 
 I am hoping this year to find solutions that will run in a reasonable amount of
 time on a Raspberry Pi 4 Model B with 4 Gigabytes of RAM and a Cortex A72
-processor. The Pi-4 is roughly 500-600 times faster than the first computer I
-purchased in the late 90s (200 MHz Pentium MMX with 64 Megabytes
-of RAM). Below I have the time it takes for the problem to finish on the third
-run of my solution after compilation on my Raspberry Pi.
+processor. The Pi-4 is roughly [500-600 times faster](https://timeartisan.org/fftbench/)
+than the first computer I purchased in the late 90s (200 MHz Pentium MMX with 64
+Megabytes of RAM). Below I have the time it takes for the problem to finish on
+the third run of my solution after compilation on my Raspberry Pi.
 
 | Day | Part | Time Elapsed |
 | :-- | :--- | :----------- |
