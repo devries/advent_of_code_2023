@@ -23,7 +23,7 @@ var CpuProfile string
 func init() {
 	pflag.BoolVarP(&RunAll, "all", "a", false, "run all days")
 	pflag.IntVarP(&DaySelected, "day", "d", 0, "run specific day")
-	pflag.StringVarP(&PartSelected, "part", "p", "2", "run specific part (default 2)")
+	pflag.StringVarP(&PartSelected, "part", "p", "2", "run specific part")
 	pflag.StringVar(&CpuProfile, "cpuprofile", "", "write cpu profile to `file`")
 }
 
