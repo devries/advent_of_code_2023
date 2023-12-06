@@ -1,7 +1,7 @@
 # Advent of Code 2023
 
 [![Tests](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml)
-[![Stars: 10](https://img.shields.io/badge/⭐_Stars-10-yellow)](https://adventofcode.com/2023)
+[![Stars: 12](https://img.shields.io/badge/⭐_Stars-12-yellow)](https://adventofcode.com/2023)
 
 ## Plan for This Year
 
@@ -81,3 +81,9 @@ opportunity to experiment a bit with code generation.
   do this the number of ranges grows, but it will always be far fewer
   calculations than tracking how each individual element is handled.
 
+- [Day 6: Wait For It](https://adventofcode.com/2023/day/6) - [part 1](day06p1/solution.go), [part 2](day06p2/solution.go)
+
+  This was just solving the quadratic equation for the times when the distance
+  was equal to the time of the race. There was a bit of fiddling with checking
+  if the distance was greater than or equal to the winning distance, but all in
+  all that was the gist of it.
