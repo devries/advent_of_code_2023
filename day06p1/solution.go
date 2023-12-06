@@ -9,8 +9,6 @@ import (
 	"aoc/utils"
 )
 
-// 17729182 is too high
-
 func Solve(r io.Reader) any {
 	lines := utils.ReadLines(r)
 
