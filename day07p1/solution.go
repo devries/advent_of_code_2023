@@ -31,13 +31,13 @@ func Solve(r io.Reader) any {
 type HandType int64
 
 const (
-	HIGHCARD HandType = iota
-	ONEPAIR
-	TWOPAIR
-	THREEOFAKIND
-	FULLHOUSE
-	FOUROFAKIND
-	FIVEOFAKIND
+	HighCard HandType = iota
+	OnePair
+	TwoPair
+	ThreeOfAKind
+	FullHouse
+	FourOfAKind
+	FiveOfAKind
 )
 
 type Hand struct {
@@ -71,19 +71,19 @@ func NewHand(ln string) *Hand {
 	var hand HandType
 	switch {
 	case equal(cardcounts, []int{5}):
-		hand = FIVEOFAKIND
+		hand = FiveOfAKind
 	case equal(cardcounts, []int{1, 4}):
-		hand = FOUROFAKIND
+		hand = FourOfAKind
 	case equal(cardcounts, []int{2, 3}):
-		hand = FULLHOUSE
+		hand = FullHouse
 	case equal(cardcounts, []int{1, 1, 3}):
-		hand = THREEOFAKIND
+		hand = ThreeOfAKind
 	case equal(cardcounts, []int{1, 2, 2}):
-		hand = TWOPAIR
+		hand = TwoPair
 	case equal(cardcounts, []int{1, 1, 1, 2}):
-		hand = ONEPAIR
+		hand = OnePair
 	case equal(cardcounts, []int{1, 1, 1, 1, 1}):
-		hand = HIGHCARD
+		hand = HighCard
 	default:
 		panic(fmt.Sprintf("Unexpected card counts: %v", cardcounts))
 	}
@@ -107,30 +107,30 @@ func equal(a, b []int) bool {
 
 type Game [](*Hand)
 
+var cardValues = map[rune]int{
+	'2': 0,
+	'3': 1,
+	'4': 2,
+	'5': 3,
+	'6': 4,
+	'7': 5,
+	'8': 6,
+	'9': 7,
+	'T': 8,
+	'J': 9,
+	'Q': 10,
+	'K': 11,
+	'A': 12,
+}
+
 func (g Game) Len() int      { return len(g) }
 func (g Game) Swap(i, j int) { g[i], g[j] = g[j], g[i] }
 func (g Game) Less(i, j int) bool {
-	a := *g[i]
-	b := *g[j]
+	a := g[i]
+	b := g[j]
 
 	if a.Type != b.Type {
 		return a.Type < b.Type
-	}
-
-	cardValues := map[rune]int{
-		'2': 0,
-		'3': 1,
-		'4': 2,
-		'5': 3,
-		'6': 4,
-		'7': 5,
-		'8': 6,
-		'9': 7,
-		'T': 8,
-		'J': 9,
-		'Q': 10,
-		'K': 11,
-		'A': 12,
 	}
 
 	for k := 0; k < 5; k++ {
