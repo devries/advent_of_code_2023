@@ -19,9 +19,10 @@ func Solve(r io.Reader) any {
 	distanceString := strings.Join(distanceStrings[1:], "")
 
 	time, err := strconv.ParseFloat(timeString, 64)
-	utils.Check(err, "Unable to parse %s into float", timeString)
+	utils.Check(err, "Unable to parse %s into float64", timeString)
 
 	distance, err := strconv.ParseFloat(distanceString, 64)
+	utils.Check(err, "Unable to parse %s to float64", distanceString)
 
 	tPressMin := 0.5*time - 0.5*math.Sqrt(time*time-4.0*distance)
 
