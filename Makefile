@@ -3,6 +3,8 @@ TEMPLATES := $(wildcard templates/*.tmpl)
 GO ?= go
 .PHONY: run runall test build clean start help
 
+.DEFAULT_GOAL := build
+
 run.go: $(GOFILES) $(TEMPLATES)
 	$(GO) generate
 
