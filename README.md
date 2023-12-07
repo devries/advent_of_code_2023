@@ -114,3 +114,13 @@ the third run of my solution after compilation on my Raspberry Pi.
   was equal to the time of the race. There was a bit of fiddling with checking
   if the distance was greater than or equal to the winning distance, but all in
   all that was the gist of it.
+
+- [Day 7: Camel Cards](https://adventofcode.com/2023/day/7) - [part 1](day07p1/solution.go), [part 2](day07p2/solution.go)
+
+  I thought this was an interesting one. Initially it involved parsing the card
+  values and then scoring based on the count of cards in the hand and the values
+  of the cards, but in the second part adding a wildcard put in a twist. I added
+  the joker counts to the card with the highest count, so for example if I had
+  two 3s, one J, and two other cards, I would add the J to the 3s making three
+  of a kind. I got a bit hung up on the golang sorting pattern, maybe because I
+  hadn't had my coffee?
