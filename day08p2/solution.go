@@ -37,7 +37,7 @@ func Solve(r io.Reader) any {
 
 	outer:
 		for {
-			for i, d := range moves {
+			for _, d := range moves {
 				next := neighbors[pos]
 				steps++
 				switch d {
@@ -48,13 +48,10 @@ func Solve(r io.Reader) any {
 				}
 
 				if strings.HasSuffix(pos, "Z") {
-					h := Hit{pos, i, steps}
+					h := Hit{pos, steps}
 					for _, ph := range hits {
-						if h.Candidate == ph.Candidate {
-							// An examination shows that the interval between hits appears to be the same as the
-							// time from start to first hit. This is slightly contrived, but makes the solution easier.
-							// This is not a general solution, but a solution that works for this and I suspect all
-							// advent of code inputs for this day.
+						if h.Candidate == ph.Candidate && h.Steps == 2*ph.Steps {
+							// Let's check if we are getting back to the same position in regular cycles.
 							cyclesteps = utils.Lcm(cyclesteps, h.Steps-ph.Steps)
 							break outer
 						}
@@ -70,6 +67,5 @@ func Solve(r io.Reader) any {
 // State when destination candidate is hit
 type Hit struct {
 	Candidate string // Ends with Z
-	Cycle     int    // i value when hit
 	Steps     int64  // step at which it was hit
 }
