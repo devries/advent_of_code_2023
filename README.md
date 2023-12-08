@@ -1,7 +1,7 @@
 # Advent of Code 2023
 
 [![Tests](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml)
-[![Stars: 14](https://img.shields.io/badge/⭐_Stars-14-yellow)](https://adventofcode.com/2023)
+[![Stars: 16](https://img.shields.io/badge/⭐_Stars-16-yellow)](https://adventofcode.com/2023)
 
 ## Plan for This Year
 
@@ -126,3 +126,16 @@ the third run of my solution after compilation on my Raspberry Pi.
   two 3s, one J, and two other cards, I would add the J to the 3s making three
   of a kind. I got a bit hung up on the golang sorting pattern, maybe because I
   hadn't had my coffee?
+
+- [Day 8: Haunted Wasteland](https://adventofcode.com/2023/day/8) - [part 1](day08p1/solution.go), [part 2](day08p2/solution.go)
+
+  This is a series where you calculate the least common multiple of a set of 
+  cycling states in order to find the interval over which all of the states
+  fully run through their cycles. I initially printed out the step at which the
+  cycle started and how many steps until it repeated. I noticed that the problem
+  is contrived such that the number of steps it initially took to reach the
+  desired end state was equal to the interval between times it hit that end
+  state, which makes the problem a straighforward least common multiples problem.
+  If the problem had not been contrived in that way, it is possible that there
+  would not have been a period over which all starting states eventually
+  synchronize so all ending states are reached at the same time.
