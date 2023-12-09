@@ -1,7 +1,7 @@
 # Advent of Code 2023
 
 [![Tests](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml)
-[![Stars: 16](https://img.shields.io/badge/⭐_Stars-16-yellow)](https://adventofcode.com/2023)
+[![Stars: 18](https://img.shields.io/badge/⭐_Stars-18-yellow)](https://adventofcode.com/2023)
 
 ## Plan for This Year
 
@@ -141,3 +141,10 @@ the third run of my solution after compilation on my Raspberry Pi.
   If the problem had not been contrived in that way, it is possible that there
   would not have been a period over which all starting states eventually
   synchronize so all ending states are reached at the same time.
+
+- [Day 9: Mirage Maintenance](https://adventofcode.com/2023/day/9) - [part 1](day09p1/solution.go), [part 2](day09p2/solution.go)
+
+  I thought about trying to somehow be clever and calculate only as much as I had
+  to at the edges of the sequences, but then I thought each sequence is short so
+  I just followed the procedure in the example. It turned out to be very
+  straightforward.
