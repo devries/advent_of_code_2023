@@ -153,7 +153,7 @@ the third run of my solution after compilation on my Raspberry Pi.
   I just followed the procedure in the example. It turned out to be very
   straightforward.
 
-- [Day 10: Mirage Maintenance](https://adventofcode.com/2023/day/10) - [⭐ part 1](day10p1/solution.go), [⭐ part 2](day10p2/solution.go)
+- [Day 10: Pipe Maze](https://adventofcode.com/2023/day/10) - [⭐ part 1](day10p1/solution.go), [⭐ part 2](day10p2/solution.go)
 
   The first part was streightforward, follow the pipe in both directions until
   your search meets at the farthest point from the start. The second part took
