@@ -1,7 +1,7 @@
 # Advent of Code 2023
 
 [![Tests](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml)
-[![Stars: 18](https://img.shields.io/badge/⭐_Stars-18-yellow)](https://adventofcode.com/2023)
+[![Stars: 20](https://img.shields.io/badge/⭐_Stars-20-yellow)](https://adventofcode.com/2023)
 
 ## Plan for This Year
 
@@ -59,7 +59,7 @@ the third run of my solution after compilation on my Raspberry Pi.
 
 ## Solutions
 
-- [Day 1: Trebuchet?!](https://adventofcode.com/2023/day/1) - [part 1](day01p1/solution.go), [part 2](day01p2/solution.go)
+- [Day 1: Trebuchet?!](https://adventofcode.com/2023/day/1) - [⭐ part 1](day01p1/solution.go), [⭐ part 2](day01p2/solution.go)
 
   Initially for the second part I put together a regular expression to search
   for the spelled out digits, however it is possible to have overlap between 
@@ -71,7 +71,7 @@ the third run of my solution after compilation on my Raspberry Pi.
   have some indexing issues which I had to debug. I later realized I could use
   `strings.LastIndex` to make this much easier.
 
-- [Day 2: Cube Conundrum ](https://adventofcode.com/2023/day/2) - [part 1](day02p1/solution.go), [part 2](day02p2/solution.go)
+- [Day 2: Cube Conundrum ](https://adventofcode.com/2023/day/2) - [⭐ part 1](day02p1/solution.go), [⭐ part 2](day02p2/solution.go)
 
   Most of this problem was parsing. I just did a lot of splitting on substrings.
   First I split on ": " to separate the game id from the draws, then I split on
@@ -79,7 +79,7 @@ the third run of my solution after compilation on my Raspberry Pi.
   After that it was straightforward. I missed an opportunity to use the debugger
   to check my parsing and instead put in a `Println`. 
 
-- [Day 3: Gear Ratios ](https://adventofcode.com/2023/day/3) - [part 1](day03p1/solution.go), [part 2](day03p2/solution.go)
+- [Day 3: Gear Ratios ](https://adventofcode.com/2023/day/3) - [⭐ part 1](day03p1/solution.go), [⭐ part 2](day03p2/solution.go)
 
   The key here was just figuring out how to store the schematic data so it would
   be useful for answering the questions. During parsing I recorded the positions
@@ -90,7 +90,7 @@ the third run of my solution after compilation on my Raspberry Pi.
   I found and then could iterate through those arrays to find gears with 
   exactly two adjacent numbers. 
 
-- [Day 4: Scratchcards](https://adventofcode.com/2023/day/4) - [part 1](day04p1/solution.go), [part 2](day04p2/solution.go)
+- [Day 4: Scratchcards](https://adventofcode.com/2023/day/4) - [⭐ part 1](day04p1/solution.go), [⭐ part 2](day04p2/solution.go)
 
   The challenge for today was competing without any power. Eventually I set up a
   hotspot on my phone to connect via a very slow (1 bar LTE) connection and
@@ -103,7 +103,7 @@ the third run of my solution after compilation on my Raspberry Pi.
   Everything seems to have worked out in the end, though I still don't have
   power, and it's not getting any warmer.
 
-- [Day 5: If You Give A Seed A Fertilizer](https://adventofcode.com/2023/day/5) - [part 1](day05p1/solution.go), [part 2](day05p2/solution.go)
+- [Day 5: If You Give A Seed A Fertilizer](https://adventofcode.com/2023/day/5) - [⭐ part 1](day05p1/solution.go), [⭐ part 2](day05p2/solution.go)
 
   This is the sort of problem where it is prohibitively large to calculate the
   conversion of every individual element in a range of integers, however the
@@ -114,14 +114,14 @@ the third run of my solution after compilation on my Raspberry Pi.
   do this the number of ranges grows, but it will always be far fewer
   calculations than tracking how each individual element is handled.
 
-- [Day 6: Wait For It](https://adventofcode.com/2023/day/6) - [part 1](day06p1/solution.go), [part 2](day06p2/solution.go)
+- [Day 6: Wait For It](https://adventofcode.com/2023/day/6) - [⭐ part 1](day06p1/solution.go), [⭐ part 2](day06p2/solution.go)
 
   This was just solving the quadratic equation for the times when the distance
   was equal to the time of the race. There was a bit of fiddling with checking
   if the distance was greater than or equal to the winning distance, but all in
   all that was the gist of it.
 
-- [Day 7: Camel Cards](https://adventofcode.com/2023/day/7) - [part 1](day07p1/solution.go), [part 2](day07p2/solution.go)
+- [Day 7: Camel Cards](https://adventofcode.com/2023/day/7) - [⭐ part 1](day07p1/solution.go), [⭐ part 2](day07p2/solution.go)
 
   I thought this was an interesting one. Initially it involved parsing the card
   values and then scoring based on the count of cards in the hand and the values
@@ -131,7 +131,7 @@ the third run of my solution after compilation on my Raspberry Pi.
   of a kind. I got a bit hung up on the golang sorting pattern, maybe because I
   hadn't had my coffee?
 
-- [Day 8: Haunted Wasteland](https://adventofcode.com/2023/day/8) - [part 1](day08p1/solution.go), [part 2](day08p2/solution.go)
+- [Day 8: Haunted Wasteland](https://adventofcode.com/2023/day/8) - [⭐ part 1](day08p1/solution.go), [⭐ part 2](day08p2/solution.go)
 
   This is a series where you calculate the least common multiple of a set of 
   cycling states in order to find the interval over which all of the states
@@ -144,9 +144,18 @@ the third run of my solution after compilation on my Raspberry Pi.
   would not have been a period over which all starting states eventually
   synchronize so all ending states are reached at the same time.
 
-- [Day 9: Mirage Maintenance](https://adventofcode.com/2023/day/9) - [part 1](day09p1/solution.go), [part 2](day09p2/solution.go)
+- [Day 9: Mirage Maintenance](https://adventofcode.com/2023/day/9) - [⭐ part 1](day09p1/solution.go), [⭐ part 2](day09p2/solution.go)
 
   I thought about trying to somehow be clever and calculate only as much as I had
   to at the edges of the sequences, but then I thought each sequence is short so
   I just followed the procedure in the example. It turned out to be very
   straightforward.
+
+- [Day 10: Mirage Maintenance](https://adventofcode.com/2023/day/10) - [⭐ part 1](day10p1/solution.go), [⭐ part 2](day10p2/solution.go)
+
+  The first part was streightforward, follow the pipe in both directions until
+  your search meets at the farthest point from the start. The second part took
+  some time for me to think about. Eventually I settled on counting pipe
+  intersections on a walk directly to the north from the point of interest. A
+  point on the outside would intersect the pipe an even number of times, while
+  a point on the outside would intersect an odd number of times.
