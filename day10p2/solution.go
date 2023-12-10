@@ -51,7 +51,7 @@ func Solve(r io.Reader) any {
 	case neighbors[0] == start.Add(utils.East) && neighbors[1] == start.Add(utils.West):
 		maze[start] = '-'
 	default:
-		panic(fmt.Errorf("Unable to find pipe that fits starting position"))
+		panic("Unable to find pipe that fits starting position")
 	}
 
 	// Count how many times we cut through an east side of
