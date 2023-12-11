@@ -1,7 +1,7 @@
 # Advent of Code 2023
 
 [![Tests](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml)
-[![Stars: 20](https://img.shields.io/badge/⭐_Stars-20-yellow)](https://adventofcode.com/2023)
+[![Stars: 22](https://img.shields.io/badge/⭐_Stars-22-yellow)](https://adventofcode.com/2023)
 
 ## Plan for This Year
 
@@ -161,3 +161,10 @@ the third run of my solution after compilation on my Raspberry Pi.
   intersections on a walk directly to the north from the point of interest. A
   point on the outside would intersect the pipe an even number of times, while
   a point on the outside would intersect an odd number of times.
+
+- [Day 11: Cosmic Expansion](https://adventofcode.com/2023/day/11) - [⭐ part 1](day11p1/solution.go), [⭐ part 2](day11p2/solution.go)
+
+  Straightforward again. I used the [github.com/devries/combs](https://github.com/devries/combs)
+  library to get all the pairs of galaxies and then summed over the columns and
+  rows that separate them, multiplying by the expansion factor if the column or
+  row did not contain a galaxy.
