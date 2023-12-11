@@ -113,7 +113,12 @@ func (m PipeMaze) Print() {
 
 	for j := 0; j >= miny; j-- {
 		for i := 0; i <= maxx; i++ {
-			fmt.Printf("%c", translations[m[utils.Point{X: i, Y: j}]])
+			v := m[utils.Point{X: i, Y: j}]
+			c := translations[m[utils.Point{X: i, Y: j}]]
+			if c == 0 {
+				c = v
+			}
+			fmt.Printf("%c", c)
 		}
 		fmt.Printf("\n")
 	}
