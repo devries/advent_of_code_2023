@@ -88,6 +88,17 @@ func Solve(r io.Reader) any {
 type PipeMaze map[utils.Point]rune
 
 func (m PipeMaze) Print() {
+	translations := map[rune]rune{
+		'I': '█',
+		'O': ' ',
+		'L': '└',
+		'F': '┌',
+		'7': '┐',
+		'J': '┘',
+		'-': '─',
+		'|': '│',
+	}
+
 	maxx := 0
 	miny := 0
 	for p := range m {
@@ -102,10 +113,11 @@ func (m PipeMaze) Print() {
 
 	for j := 0; j >= miny; j-- {
 		for i := 0; i <= maxx; i++ {
-			fmt.Printf("%c", m[utils.Point{X: i, Y: j}])
+			fmt.Printf("%c", translations[m[utils.Point{X: i, Y: j}]])
 		}
 		fmt.Printf("\n")
 	}
+	fmt.Printf("\n")
 }
 
 func (m PipeMaze) GetInitial() utils.Point {
