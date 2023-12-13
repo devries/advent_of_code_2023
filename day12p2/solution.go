@@ -43,7 +43,10 @@ func Solve(r io.Reader) any {
 		if utils.Verbose {
 			fmt.Printf("\texpanded: %s\n", bld.String())
 		}
-		valid := findValid([]rune(bld.String()), groups)
+
+		s := NewSequence([]rune(bld.String()), groups)
+		state := State{0, 0}
+		valid := s.CountValid(state)
 		if utils.Verbose {
 			fmt.Printf("\tValid: %d\n\n", valid)
 		}
@@ -52,179 +55,90 @@ func Solve(r io.Reader) any {
 	return sum
 }
 
-func findValid(row []rune, groups []int) int64 {
-	valids := int64(0)
-
-	if isCompleteAndValid(row, groups) {
-		valids = 1
-		return 1
-	}
-
-	for _, r := range findNext(row, groups) {
-		valids += findValid(r, groups)
-	}
-
-	return valids
+// Memoize based on state
+type State struct {
+	Start      int
+	GroupsDone int
 }
 
-func findNext(row []rune, groups []int) [][]rune {
-	cgroups := []int{}
-	inGroup := false
-	ng := 0
-	firstQ := len(row)
-	ret := [][]rune{}
-	brokenSum := 0
-	unknownSum := 0
+// Structure to hold problem and cache
+type Sequence struct {
+	Row       []rune
+	Groups    []int
+	NGroups   int             // number of groups
+	RowLength int             // length of row
+	Seen      map[State]int64 // Previously seen results
+}
 
-	// fmt.Println(string(row))
-	for i, r := range row {
-		switch r {
-		case '#':
-			if i < firstQ {
-				inGroup = true
-				ng++
-			}
-			brokenSum++
-		case '.':
-			if i < firstQ {
-				inGroup = false
-				if ng > 0 {
-					cgroups = append(cgroups, ng)
-					ng = 0
-				}
-			}
-		case '?':
-			if firstQ > i {
-				firstQ = i
-			}
-			unknownSum++
-		}
-	}
-	if firstQ == len(row) {
-		return ret
+func NewSequence(row []rune, groups []int) *Sequence {
+	s := Sequence{row, groups, len(groups), len(row), make(map[State]int64)}
+
+	return &s
+}
+
+func (s *Sequence) CountValid(state State) int64 {
+	if v, ok := s.Seen[state]; ok {
+		return v
 	}
 
-	// Check there are enough remainging to make all groups
-	remain := len(row) - firstQ
-	if inGroup {
-		remain += ng
-	}
-
-	needForGroupings := 0
-	for i := len(cgroups); i < len(groups); i++ {
-		needForGroupings += groups[i] + 1
-	}
-	needForGroupings--
-
-	if needForGroupings > remain {
-		return ret
-	}
-
-	sum := 0
-	for _, g := range groups {
-		sum += g
-	}
-
-	if brokenSum+unknownSum < sum {
-		// invalid
-		return ret
-	}
-
-	if len(cgroups) > len(groups) {
-		// invalid
-		return ret
-	}
-
-	if len(cgroups) == len(groups) {
-		for i := firstQ; i < len(row); i++ {
-			if row[i] == '#' {
-				return ret
-			}
-			row[i] = '.'
-		}
-		ret = append(ret, row)
-		return ret
-	}
-
-	// Complete next group of broken springs
-	need := groups[len(cgroups)]
-	endPoint := len(row)
-	if inGroup {
-		// group must go here
-		need -= ng
-		endPoint = firstQ + 1
-	} else {
-		for i := firstQ + 1; i < len(row); i++ {
-			if row[i] == '#' {
-				endPoint = i + 1
+	// Check if there are no more groups to do
+	if state.GroupsDone >= s.NGroups {
+		valid := true
+		for i := state.Start; i < s.RowLength; i++ {
+			if s.Row[i] == '#' {
+				valid = false
 				break
 			}
 		}
-	}
-
-	if need+firstQ > len(row) {
-		// not enough room
-		return ret
-	}
-
-outer:
-	for start := firstQ; start < endPoint; start++ {
-		newrow := make([]rune, len(row))
-		copy(newrow, row)
-		for i := firstQ; i < start; i++ {
-			newrow[i] = '.'
+		if valid {
+			s.Seen[state] = 1
+			return 1
+		} else {
+			s.Seen[state] = 0
+			return 0
 		}
-		for i := start; i < need+start; i++ {
-			if i == len(newrow) || newrow[i] == '.' {
-				// wont work
-				continue outer
+	}
+
+	validSolutions := int64(0)
+	remainingSprings := s.RowLength - state.Start
+
+	// The number of springs that need to have a specific value are
+	// the remaining group counts plus a spacer between each group
+	accountedSprings := 0
+	for i := state.GroupsDone; i < s.NGroups; i++ {
+		accountedSprings += s.Groups[i]
+		accountedSprings++ // add spacer
+	}
+	accountedSprings-- // remove spacer for last one
+
+	// These are springs that are not spacers or broken springs in the rest of the
+	// problem
+	extraWorkingSprings := remainingSprings - accountedSprings
+
+	//
+	for buffer := 0; buffer < extraWorkingSprings+1; buffer++ {
+		valid := true
+		lastPosition := state.Start + buffer + s.Groups[state.GroupsDone]
+		for i := state.Start; i < lastPosition; i++ {
+			if i < state.Start+buffer && s.Row[i] == '#' {
+				valid = false
+				break
 			}
-			newrow[i] = '#'
-		}
-		if need+start < len(row) {
-			if row[need+start] == '#' {
-				// invalid
-				continue outer
-			}
-			newrow[need+start] = '.'
-		}
-		ret = append(ret, newrow)
-	}
-
-	return ret
-}
-
-func isCompleteAndValid(row []rune, groups []int) bool {
-	cgroups := []int{}
-	ng := 0
-
-	for _, r := range row {
-		switch r {
-		case '?':
-			return false
-		case '#':
-			ng++
-		case '.':
-			if ng > 0 {
-				cgroups = append(cgroups, ng)
-				ng = 0
+			if i >= state.Start+buffer && s.Row[i] == '.' {
+				valid = false
+				break
 			}
 		}
-	}
-	if ng > 0 {
-		cgroups = append(cgroups, ng)
-	}
+		if lastPosition < s.RowLength && s.Row[lastPosition] == '#' {
+			valid = false
+		}
 
-	if len(groups) != len(cgroups) {
-		return false
-	}
-
-	for i, ng := range cgroups {
-		if ng != groups[i] {
-			return false
+		if valid {
+			newState := State{lastPosition + 1, state.GroupsDone + 1}
+			validSolutions += s.CountValid(newState)
 		}
 	}
 
-	// fmt.Printf("\tValid: %s\n", string(row))
-	return true
+	s.Seen[state] = validSolutions
+	return validSolutions
 }

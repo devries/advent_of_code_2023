@@ -1,7 +1,7 @@
 # Advent of Code 2023
 
 [![Tests](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml)
-[![Stars: 22](https://img.shields.io/badge/⭐_Stars-22-yellow)](https://adventofcode.com/2023)
+[![Stars: 24](https://img.shields.io/badge/⭐_Stars-24-yellow)](https://adventofcode.com/2023)
 
 ## Plan for This Year
 
@@ -170,3 +170,16 @@ the third run of my solution after compilation on my Raspberry Pi.
   library to get all the pairs of galaxies and then summed over the columns and
   rows that separate them, multiplying by the expansion factor if the column or
   row did not contain a galaxy.
+
+- [Day 12: Hot Springs](https://adventofcode.com/2023/day/12) - [⭐ part 1](day12p1/solution.go), [⭐ part 2](day12p2/solution.go)
+
+  This one was very tough for me. I spent a lot of time making iterators that would
+  return the next potential valid row with one additional group filled in, but
+  I wasn't able to memoize that method and I did not take into account the idea
+  that there was a maximum number of working spring spaces I could put in before
+  adding the next group. I ended up parameterizing solution counts in a memoizable
+  state which, for each sequence, was the number of groups already accounted for
+  and the starting position in the sequence. I would then run through all
+  possible positions of the next group up to the total amount of buffer space
+  I had available and find counts for those. I find these kinds of problems
+  very difficult.
