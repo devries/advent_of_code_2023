@@ -1,7 +1,7 @@
 # Advent of Code 2023
 
 [![Tests](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml)
-[![Stars: 24](https://img.shields.io/badge/⭐_Stars-24-yellow)](https://adventofcode.com/2023)
+[![Stars: 26](https://img.shields.io/badge/⭐_Stars-26-yellow)](https://adventofcode.com/2023)
 
 ## Plan for This Year
 
@@ -185,3 +185,15 @@ the third run of my solution after compilation on my Raspberry Pi.
   possible positions of the next group up to the total amount of buffer space
   I had available and find counts for those. I find these kinds of problems
   very difficult.
+
+- [Day 13: Point of Incidence](https://adventofcode.com/2023/day/13) - [⭐ part 1](day13p1/solution.go), [⭐ part 2](day13p2/solution.go)
+
+  I noticed all the maps were smaller than 64 in length and width, so I used a
+  bitfield to store the locations of the rocks for every row and column. I then
+  just had to check for symmetry from each row and column gap. For the second
+  part I did the same comparison but checked to see if there was an off by 1
+  bit issue between any two comparisons, and required one and only one of those
+  to define a new symmetry axis. Unfortunately I tried to use subtraction rather
+  than the XOR function, which of course caused a few errors. My extra test
+  cases were made to track down those errors. I used Kernighan's bit counting
+  algorithm to find the number of bits in the XOR difference. 
