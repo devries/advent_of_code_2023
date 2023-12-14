@@ -36,7 +36,7 @@ func Solve(r io.Reader) any {
 		tiltCycle(&platform)
 		cs := platform.checkSum()
 		if v, ok := checksums[cs]; ok && looking {
-			interval := v - i
+			interval := i - v
 			start := v
 			span := maxiter - start
 			ncycles := span / interval
