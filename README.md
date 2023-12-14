@@ -221,5 +221,25 @@ the third run of my solution after compilation on my Raspberry Pi.
 
   So far I have not used any AI generated subroutines in my code. Today may have
   been a good day to try. I could have asked something like "write a function in
-  go that calculates the has of a slice of int32s." While programming it seems
-  like I don't really want to shift gears to ask AI for help.
+  go that calculates the hash of a slice of int32s." Having just asked, bing
+  generated the following code:
+
+    ```go
+    import (
+        "crypto/sha256"
+        "encoding/binary"
+    )
+
+    func HashInt32Slice(s []int32) [32]byte {
+        h := sha256.New()
+        for _, i := range s {
+            b := make([]byte, 4)
+            binary.LittleEndian.PutUint32(b, uint32(i))
+            h.Write(b)
+        }
+        return h.Sum(nil)
+    }
+    ```
+    
+  While programming it seems like I don't really want to shift gears to ask AI
+  for help.
