@@ -218,3 +218,8 @@ the third run of my solution after compilation on my Raspberry Pi.
   able to look for when the hashes started to repeat. This is the first day
   that takes more than 1 second to run on the Raspberry Pi (though day 11 came
   close).
+
+  So far I have not used any AI generated subroutines in my code. Today may have
+  been a good day to try. I could have asked something like "write a function in
+  go that calculates the has of a slice of int32s." While programming it seems
+  like I don't really want to shift gears to ask AI for help.
