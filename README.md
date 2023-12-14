@@ -1,7 +1,7 @@
 # Advent of Code 2023
 
 [![Tests](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml)
-[![Stars: 26](https://img.shields.io/badge/⭐_Stars-26-yellow)](https://adventofcode.com/2023)
+[![Stars: 28](https://img.shields.io/badge/⭐_Stars-28-yellow)](https://adventofcode.com/2023)
 
 ## Plan for This Year
 
@@ -199,3 +199,18 @@ the third run of my solution after compilation on my Raspberry Pi.
   than the XOR function, which of course caused a few errors. My extra test
   cases were made to track down those errors. I used Kernighan's bit counting
   algorithm to find the number of bits in the XOR difference. 
+
+- [Day 14: Parabolic Reflector Dish](https://adventofcode.com/2023/day/14) - [⭐ part 1](day14p1/solution.go), [⭐ part 2](day14p2/solution.go)
+
+  The tilting mechanic was fairly straighforward, though for the spin cycle I
+  decided to write four separate loops rather than a more generic loop which
+  would work for each direction. Obviously iterating 1,000,000,000 times is not
+  practical, however the arrangement of rocks should begin cycling through a
+  sequence of repeated positions, so we just need to find where that cycle
+  starts and ends, and then jump ahead N cycles to just before the iterations
+  are complete. The only problem is storing the map state. This tripped me up a
+  bit as I tried to find a unique integer that summarized the map, but that's
+  the job of a hash function. I took the sorted list of positions of rolling
+  rocks, turned the coordinate into an integer, *sorted them*, and then wrote
+  the binary encoding of those integers to a fnv-1a hash function. I then was
+  able to look for when the hashes started to repeat.
