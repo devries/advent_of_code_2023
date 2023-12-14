@@ -64,6 +64,8 @@ the third run of my solution after compilation on my Raspberry Pi.
 | 12  | 2    | 129.23797ms  |
 | 13  | 1    | 708.271µs    |
 | 13  | 2    | 711.826µs    |
+| 14  | 1    | 3.185616ms   |
+| 14  | 2    | 1.734193401s |
 
 ## Solutions
 
@@ -213,4 +215,6 @@ the third run of my solution after compilation on my Raspberry Pi.
   the job of a hash function. I took the sorted list of positions of rolling
   rocks, turned the coordinate into an integer, *sorted them*, and then wrote
   the binary encoding of those integers to a fnv-1a hash function. I then was
-  able to look for when the hashes started to repeat.
+  able to look for when the hashes started to repeat. This is the first day
+  that takes more than 1 second to run on the Raspberry Pi (though day 11 came
+  close).
