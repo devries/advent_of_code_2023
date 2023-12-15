@@ -1,7 +1,7 @@
 # Advent of Code 2023
 
 [![Tests](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml)
-[![Stars: 28](https://img.shields.io/badge/⭐_Stars-28-yellow)](https://adventofcode.com/2023)
+[![Stars: 30](https://img.shields.io/badge/⭐_Stars-30-yellow)](https://adventofcode.com/2023)
 
 ## Plan for This Year
 
@@ -243,3 +243,11 @@ the third run of my solution after compilation on my Raspberry Pi.
     
   While programming it seems like I don't really want to shift gears to ask AI
   for help.
+
+- [Day 15: Lens Library](https://adventofcode.com/2023/day/15) - [⭐ part 1](day15p1/solution.go), [⭐ part 2](day15p2/solution.go)
+
+  This was also a very straightforward problem, although I did have to fix a
+  number of bugs I introduced. This problem illustrates how a hash map works
+  and then requires operations on the hashmapped values. I created a Lens object
+  which I passed around by value, and forgot when I changed an attribute in that
+  object, I need to reassign it to the lens in the box array.
