@@ -66,6 +66,8 @@ the third run of my solution after compilation on my Raspberry Pi.
 | 13  | 2    | 711.826µs    |
 | 14  | 1    | 3.185616ms   |
 | 14  | 2    | 1.734193401s |
+| 15  | 1    | 460.069µs    |
+| 15  | 2    | 3.105932ms   |
 
 ## Solutions
 
