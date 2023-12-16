@@ -68,6 +68,8 @@ the third run of my solution after compilation on my Raspberry Pi.
 | 14  | 2    | 1.734193401s |
 | 15  | 1    | 460.069µs    |
 | 15  | 2    | 3.105932ms   |
+| 16  | 1    | 47.589642ms  |
+| 16  | 2    | 9.03134853s  |
 
 ## Solutions
 
@@ -260,7 +262,10 @@ the third run of my solution after compilation on my Raspberry Pi.
   contraption. I used the beam position and direction as the state. I also made
   use of the new go [`clear`](https://tip.golang.org/ref/spec#Clear) built-in
   function to clear out the energized tile hashmap. This one is a bit slow, but
-  I guess it is fast enough? 
+  I guess it is fast enough? I may have been able to save the number energized
+  starting from each state in the system to reuse when I ran additional starting
+  directions, but that seems like it would have been tricky with the requirement
+  that energized tiles only be counted once.
 
 
 
