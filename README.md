@@ -256,7 +256,7 @@ the third run of my solution after compilation on my Raspberry Pi.
   which I passed around by value, and forgot when I changed an attribute in that
   object, I need to reassign it to the lens in the box array.
 
-- [Day 16: Lens Library](https://adventofcode.com/2023/day/16) - [⭐ part 1](day16p1/solution.go), [⭐ part 2](day16p2/solution.go)
+- [Day 16: The Floor Will Be Lava](https://adventofcode.com/2023/day/16) - [⭐ part 1](day16p1/solution.go), [⭐ part 2](day16p2/solution.go)
 
   My [breadth-first search library](utils/bfs.go) came in handy for exploring the
   contraption. I used the beam position and direction as the state. I also made
@@ -266,9 +266,3 @@ the third run of my solution after compilation on my Raspberry Pi.
   starting from each state in the system to reuse when I ran additional starting
   directions, but that seems like it would have been tricky with the requirement
   that energized tiles only be counted once.
-
-
-
-
-
-
