@@ -1,7 +1,7 @@
 # Advent of Code 2023
 
 [![Tests](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml)
-[![Stars: 30](https://img.shields.io/badge/⭐_Stars-30-yellow)](https://adventofcode.com/2023)
+[![Stars: 32](https://img.shields.io/badge/⭐_Stars-32-yellow)](https://adventofcode.com/2023)
 
 ## Plan for This Year
 
@@ -253,3 +253,17 @@ the third run of my solution after compilation on my Raspberry Pi.
   and then requires operations on the hashmapped values. I created a Lens object
   which I passed around by value, and forgot when I changed an attribute in that
   object, I need to reassign it to the lens in the box array.
+
+- [Day 16: Lens Library](https://adventofcode.com/2023/day/16) - [⭐ part 1](day16p1/solution.go), [⭐ part 2](day16p2/solution.go)
+
+  My [breadth-first search library](utils/bfs.go) came in handy for exploring the
+  contraption. I used the beam position and direction as the state. I also made
+  use of the new go [`clear`](https://tip.golang.org/ref/spec#Clear) built-in
+  function to clear out the energized tile hashmap. This one is a bit slow, but
+  I guess it is fast enough? 
+
+
+
+
+
+
