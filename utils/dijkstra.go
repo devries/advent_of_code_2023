@@ -131,7 +131,7 @@ func (b *DijkstraSearch[T]) Run(g WeightedGraph[T]) (T, error) {
 		}
 	}
 
-	return initState, BFSNotFound
+	return initState, DijkstraNotFound
 }
 
 // GetPath returns the shortest from the starting node to the given node.
