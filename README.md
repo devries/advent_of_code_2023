@@ -269,8 +269,15 @@ the third run of my solution after compilation on my Raspberry Pi.
   directions, but that seems like it would have been tricky with the requirement
   that energized tiles only be counted once.
 
-- [Day 17: Clumsy Crucible](https://adventofcode.com/2023/day/17) - [⭐ part 1](day17p1/solution.go), [⭐ part 2](day17p2/solution.go)
+- [Day 17: Clumsy Crucible](https://adventofcode.com/2023/day/17) - [⭐ part 1](day17p1/solution.go), [⭐ part 2](day17p2/solution.go), [⭐ part 2b](day17p2b/solution.go)
 
   First use of Dijkstra! It was fairly easy to adapt the conditions of the
   problem to the Graph routines in my code. I think memory allocation may be
   the bottleneck in my implementation, but it seems fast enough.
+
+  After submitting my solution and reading other people's suggestions on reddit
+  I refactored my solution for part 2 to part 2b. In this example, rather than
+  use the position, direction, and number of steps as a state, I reduce the
+  state to position and direction. For neighboring states, I assume I will turn
+  90 degrees and find all states 4 to 10 steps away in each direction. This runs
+  much faster as shown above.
