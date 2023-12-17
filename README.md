@@ -270,7 +270,7 @@ the third run of my solution after compilation on my Raspberry Pi.
   directions, but that seems like it would have been tricky with the requirement
   that energized tiles only be counted once.
 
-- [Day 17: Clumsy Crucible](https://adventofcode.com/2023/day/17) - [⭐ part 1](day17p1/solution.go), [⭐ part 2](day17p2/solution.go), [⭐ part 2b](day17p2b/solution.go)
+- [Day 17: Clumsy Crucible](https://adventofcode.com/2023/day/17) - [⭐ part 1](day17p1/solution.go), [⭐ part 2](day17p2/solution.go), [part 2b](day17p2b/solution.go)
 
   First use of Dijkstra! It was fairly easy to adapt the conditions of the
   problem to the Graph routines in my code. I think memory allocation may be
