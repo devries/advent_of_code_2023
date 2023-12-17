@@ -1,7 +1,7 @@
 # Advent of Code 2023
 
 [![Tests](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml)
-[![Stars: 32](https://img.shields.io/badge/⭐_Stars-32-yellow)](https://adventofcode.com/2023)
+[![Stars: 34](https://img.shields.io/badge/⭐_Stars-34-yellow)](https://adventofcode.com/2023)
 
 ## Plan for This Year
 
@@ -266,3 +266,9 @@ the third run of my solution after compilation on my Raspberry Pi.
   starting from each state in the system to reuse when I ran additional starting
   directions, but that seems like it would have been tricky with the requirement
   that energized tiles only be counted once.
+
+- [Day 17: Clumsy Crucible](https://adventofcode.com/2023/day/17) - [⭐ part 1](day17p1/solution.go), [⭐ part 2](day17p2/solution.go)
+
+  First use of Dijkstra! It was fairly easy to adapt the conditions of the
+  problem to the Graph routines in my code. I think memory allocation may be
+  the bottleneck in my implementation, but it seems fast enough.
