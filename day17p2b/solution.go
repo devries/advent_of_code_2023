@@ -39,16 +39,22 @@ func NewMaze(lines []string) *Maze {
 	return &m
 }
 
+const (
+	stationary = iota
+	horizontal
+	vertical
+)
+
 type State struct {
-	Position  utils.Point
-	Direction utils.Point
+	Position utils.Point
+	Motion   int
 }
 
 var zero = utils.Point{X: 0, Y: 0}
 
 func (m *Maze) GetInitial() State {
 	// special starting direction from which we will go East to South
-	return State{zero, zero}
+	return State{zero, stationary}
 }
 
 func (m *Maze) GetEdges(s State) []utils.Edge[State] {
@@ -56,29 +62,38 @@ func (m *Maze) GetEdges(s State) []utils.Edge[State] {
 
 	nextDirections := make([]utils.Point, 2)
 
-	switch s.Direction {
-	case zero:
+	switch s.Motion {
+	case stationary:
 		// This is the special starting state
 		nextDirections[0] = utils.East
 		nextDirections[1] = utils.South
-	case utils.East, utils.West:
+	case horizontal:
 		nextDirections[0] = utils.South
 		nextDirections[1] = utils.North
-	case utils.North, utils.South:
+	case vertical:
 		nextDirections[0] = utils.East
 		nextDirections[1] = utils.West
 	}
 
 	// Left and Right
 	for _, dir := range nextDirections {
+		var newMotion int
+		switch dir {
+		case utils.East, utils.West:
+			newMotion = horizontal
+		case utils.South, utils.North:
+			newMotion = vertical
+		}
+
 		p := s.Position
 		var length uint64
+
 		for step := 1; step <= 10; step++ {
 			p = p.Add(dir)
 			if delta, ok := m.HeatLoss[p]; ok {
 				length += delta
 				if step >= 4 {
-					ret = append(ret, utils.Edge[State]{Node: State{p, dir}, Distance: length})
+					ret = append(ret, utils.Edge[State]{Node: State{p, newMotion}, Distance: length})
 				}
 			}
 		}
