@@ -1,7 +1,7 @@
 # Advent of Code 2023
 
 [![Tests](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml)
-[![Stars: 34](https://img.shields.io/badge/⭐_Stars-34-yellow)](https://adventofcode.com/2023)
+[![Stars: 36](https://img.shields.io/badge/⭐_Stars-36-yellow)](https://adventofcode.com/2023)
 
 ## Plan for This Year
 
@@ -282,3 +282,16 @@ the third run of my solution after compilation on my Raspberry Pi.
   state to position and direction. For neighboring states, I assume I will turn
   90 degrees and find all states 4 to 10 steps away in each direction. This runs
   much faster as shown above.
+
+- [Day 18: Lavaduct Lagoon](https://adventofcode.com/2023/day/18) - [⭐ part 1](day18p1/solution.go), [⭐ part 2](day18p2/solution.go)
+
+  For the first part I did a flood fill of points outside the trench and then
+  subtracted the area not filled from the surrounding rectangle. I should have
+  seen the second part coming, but essentially what I did was find all the
+  horizontal line segments in the trenches. I then worked up from the lowest
+  segment to the highest segment calculating the area of rectangles above the
+  existing segments until they intersect other segments. I did the accounting
+  in a complicated and error prone way which meant that I was able to only
+  finish the first part before work and had to wait to finish the second
+  part until after work. I think there has to be a more elegant way to express
+  what I was trying to express, but I didn't find it today.
