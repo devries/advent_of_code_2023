@@ -78,6 +78,8 @@ the third run of my solution after compilation on my Raspberry Pi.
 | 17  | 2b   | 1.055163261s  |
 | 18  | 1    | 294.590182ms  |
 | 18  | 2    | 3.934349ms    |
+| 19  | 1    | 3.561334ms    |
+| 19  | 2    | 4.006922ms    |
 
 ## Solutions
 
@@ -301,7 +303,7 @@ the third run of my solution after compilation on my Raspberry Pi.
   part until after work. I think there has to be a more elegant way to express
   what I was trying to express, but I didn't find it today.
 
-- [Day 19: Lavaduct Lagoon](https://adventofcode.com/2023/day/19) - [⭐ part 1](day19p1/solution.go), [⭐ part 2](day19p2/solution.go)
+- [Day 19: Aplenty](https://adventofcode.com/2023/day/19) - [⭐ part 1](day19p1/solution.go), [⭐ part 2](day19p2/solution.go)
 
   Today's code was heavy with structures. One for the part, the part range,
   the operation, the workflow, and the rule. It got a little complicated, but
