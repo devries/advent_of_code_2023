@@ -136,62 +136,62 @@ func (r rule) splitRange(pr partRange) (partRange, partRange) {
 
 	switch r.attribute {
 	case "x":
-		min, max := pr.xmin, pr.xmax
-		trueRange.xmin, trueRange.xmax = rangeReduce(r.op, r.argument, min, max)
-		falseRange.xmin, falseRange.xmax = rangeReduceOther(r.op, r.argument, min, max)
+		minVal, maxVal := pr.xmin, pr.xmax
+		trueRange.xmin, trueRange.xmax = rangeReduce(r.op, r.argument, minVal, maxVal)
+		falseRange.xmin, falseRange.xmax = rangeReduceOther(r.op, r.argument, minVal, maxVal)
 	case "m":
-		min, max := pr.mmin, pr.mmax
-		trueRange.mmin, trueRange.mmax = rangeReduce(r.op, r.argument, min, max)
-		falseRange.mmin, falseRange.mmax = rangeReduceOther(r.op, r.argument, min, max)
+		minVal, maxVal := pr.mmin, pr.mmax
+		trueRange.mmin, trueRange.mmax = rangeReduce(r.op, r.argument, minVal, maxVal)
+		falseRange.mmin, falseRange.mmax = rangeReduceOther(r.op, r.argument, minVal, maxVal)
 	case "a":
-		min, max := pr.amin, pr.amax
-		trueRange.amin, trueRange.amax = rangeReduce(r.op, r.argument, min, max)
-		falseRange.amin, falseRange.amax = rangeReduceOther(r.op, r.argument, min, max)
+		minVal, maxVal := pr.amin, pr.amax
+		trueRange.amin, trueRange.amax = rangeReduce(r.op, r.argument, minVal, maxVal)
+		falseRange.amin, falseRange.amax = rangeReduceOther(r.op, r.argument, minVal, maxVal)
 	case "s":
-		min, max := pr.smin, pr.smax
-		trueRange.smin, trueRange.smax = rangeReduce(r.op, r.argument, min, max)
-		falseRange.smin, falseRange.smax = rangeReduceOther(r.op, r.argument, min, max)
+		minVal, maxVal := pr.smin, pr.smax
+		trueRange.smin, trueRange.smax = rangeReduce(r.op, r.argument, minVal, maxVal)
+		falseRange.smin, falseRange.smax = rangeReduceOther(r.op, r.argument, minVal, maxVal)
 	}
 
 	return trueRange, falseRange
 }
 
-func rangeReduce(op operation, arg int64, min int64, max int64) (int64, int64) {
+func rangeReduce(op operation, arg int64, minVal int64, maxVal int64) (int64, int64) {
 	switch op {
 	case none:
-		return min, max
+		return minVal, maxVal
 	case lessthan:
-		if max >= arg {
-			max = arg - 1
+		if maxVal >= arg {
+			maxVal = arg - 1
 		}
 	case greaterthan:
-		if min <= arg {
-			min = arg + 1
+		if minVal <= arg {
+			minVal = arg + 1
 		}
 	default:
 		panic("unknown operation")
 	}
 
-	return min, max
+	return minVal, maxVal
 }
 
-func rangeReduceOther(op operation, arg int64, min int64, max int64) (int64, int64) {
+func rangeReduceOther(op operation, arg int64, minVal int64, maxVal int64) (int64, int64) {
 	switch op {
 	case none:
 		return 0, 0
 	case lessthan:
-		if min < arg {
-			min = arg
+		if minVal < arg {
+			minVal = arg
 		}
 	case greaterthan:
-		if max > arg {
-			max = arg
+		if maxVal > arg {
+			maxVal = arg
 		}
 	default:
 		panic("unknown operation")
 	}
 
-	return min, max
+	return minVal, maxVal
 }
 
 type workflowMap map[string][]rule
