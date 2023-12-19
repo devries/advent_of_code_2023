@@ -11,11 +11,7 @@ hope is that by the end of December I will be much more familiar with the
 debugger. Second, I want to try asking some generative AIs for helpful functions
 to see how it improves my speed. I was considering Github copilot, but I just
 can't give up my current editor, [helix](https://helix-editor.com/), to use
-vscode, and I don't really want to go down that neovim plugin rabbit hole
-
-
-[![Tests](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml)
-anymore. 
+vscode, and I don't really want to go down that neovim plugin rabbit hole anymore. 
 
 I may use codespaces a bit. I've added some permissions so that I can clone my
 private inputs submodule just in case, but it's hard to beat the setup I use to
