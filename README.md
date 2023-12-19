@@ -1,7 +1,7 @@
 # Advent of Code 2023
 
 [![Tests](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml)
-[![Stars: 36](https://img.shields.io/badge/⭐_Stars-36-yellow)](https://adventofcode.com/2023)
+[![Stars: 38](https://img.shields.io/badge/⭐_Stars-38-yellow)](https://adventofcode.com/2023)
 
 ## Plan for This Year
 
@@ -12,6 +12,9 @@ debugger. Second, I want to try asking some generative AIs for helpful functions
 to see how it improves my speed. I was considering Github copilot, but I just
 can't give up my current editor, [helix](https://helix-editor.com/), to use
 vscode, and I don't really want to go down that neovim plugin rabbit hole
+
+
+[![Tests](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml)
 anymore. 
 
 I may use codespaces a bit. I've added some permissions so that I can clone my
@@ -297,3 +300,12 @@ the third run of my solution after compilation on my Raspberry Pi.
   finish the first part before work and had to wait to finish the second
   part until after work. I think there has to be a more elegant way to express
   what I was trying to express, but I didn't find it today.
+
+- [Day 19: Lavaduct Lagoon](https://adventofcode.com/2023/day/19) - [⭐ part 1](day19p1/solution.go), [⭐ part 2](day19p2/solution.go)
+
+  Today's code was heavy with structures. One for the part, the part range,
+  the operation, the workflow, and the rule. It got a little complicated, but
+  it was just breaking things down and then evaluating the next step. For the
+  final summation, I would just split the available ranges up and perform the
+  rule action on the part that satisfied the rule, and move on with the part
+  that didn't.
