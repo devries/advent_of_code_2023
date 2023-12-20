@@ -1,7 +1,7 @@
 # Advent of Code 2023
 
 [![Tests](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml)
-[![Stars: 38](https://img.shields.io/badge/⭐_Stars-38-yellow)](https://adventofcode.com/2023)
+[![Stars: 40](https://img.shields.io/badge/⭐_Stars-40-yellow)](https://adventofcode.com/2023)
 
 ## Plan for This Year
 
@@ -76,6 +76,8 @@ the third run of my solution after compilation on my Raspberry Pi.
 | 18  | 2    | 3.934349ms    |
 | 19  | 1    | 3.561334ms    |
 | 19  | 2    | 4.006922ms    |
+| 20  | 1    | 25.246853ms   |
+| 20  | 2    | 2.752046ms    |
 
 ## Solutions
 
@@ -307,3 +309,15 @@ the third run of my solution after compilation on my Raspberry Pi.
   final summation, I would just split the available ranges up and perform the
   rule action on the part that satisfied the rule, and move on with the part
   that didn't.
+
+- [Day 20: Pulse Propagation](https://adventofcode.com/2023/day/20) - [⭐ part 1](day20p1/solution.go), [⭐ part 2](day20p2/solution.go)
+
+  The first part of this was straighforward, though I did manage to overengineer
+  it a bit. I also did finally ask for bing chat to provide some code. I asked
+  it for an arbitrary length bitfield. For some reason it didn't give me an
+  unset method and I had to write a serializer and deserializer because I thought
+  we were going to require memoization. This is one of the many times thinking
+  ahead just made things harder because it turns out the second part involved
+  examining the structure of the gates to form a solution. I only did the solution
+  for my particular arrangement. The code to part two does produce a visualization
+  which can be used to change the final 4 binary entries in the program.

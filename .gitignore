@@ -4,3 +4,4 @@
 /*.json
 run.go
 aoc_run
+day20p2/relations.gv
