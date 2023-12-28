@@ -1,7 +1,7 @@
 # Advent of Code 2023
 
 [![Tests](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml/badge.svg)](https://github.com/devries/advent_of_code_2023/actions/workflows/main.yml)
-[![Stars: 40](https://img.shields.io/badge/⭐_Stars-40-yellow)](https://adventofcode.com/2023)
+[![Stars: 41](https://img.shields.io/badge/⭐_Stars-41-yellow)](https://adventofcode.com/2023)
 
 ## Plan for This Year
 
@@ -321,3 +321,13 @@ the third run of my solution after compilation on my Raspberry Pi.
   examining the structure of the gates to form a solution. I only did the solution
   for my particular arrangement. The code to part two does produce a visualization
   which can be used to change the final 4 binary entries in the program.
+
+- [Day 21: Step Counter](https://adventofcode.com/2023/day/21) - [⭐ part 1](day21p1/solution.go), [part 2](day21p2/solution.go)
+
+  I did part 1 of this probem and then put aside part 2 for later in the day. I
+  was working on adding up all the maps in a diamond with alternating odd square
+  and even square map counts, but I had some arithmatic errors and offset issues.
+  Eventually I decided to put it aside. Some other issues started taking up my
+  time including a large refactoring project at work and my children arriving for
+  Christmas, so I didn't get back to it this year. I will probably finish things
+  up in the new year.
