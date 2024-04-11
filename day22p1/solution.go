@@ -40,7 +40,6 @@ func parseLine(ln string) Brick {
 	parts := strings.Split(ln, "~")
 
 	return Brick{parseVector(parts[0]), parseVector(parts[1])}
-
 }
 
 func parseVector(v string) Vector {
